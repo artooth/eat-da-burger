@@ -1,2 +1,41 @@
 {{!-- 1. Setup the index.handlebars to have the template that Handlebars can render onto
 2. Create a button in index.handlebars that will submit the user input into the database. --}}
+
+<h1>Eat-Da-Burger</h1>
+
+<h2>Burgers ready to eat</h2>
+
+<ul>
+    {{#each burger}}
+    {{#unless eaten}}
+    {{> burgers/burger-block eaten=true}}
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Eaten burgers</h2>
+
+<ul>
+    {{#each burger}}
+    {{#if eaten}}
+    {{> burgers/burger-block eaten=false}}
+    {{/if}}
+    {{/each}}
+</ul>
+
+<h2>Order a burger</h2>
+<form class="create-form">
+
+    <div class="form-group">
+        <label for="burgers">Burger:</label>
+        <input type="text" id="burger" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="hungry">Hungry?</label><br>
+        <input type="radio" name="hungry" value="1" checked> Hungry!<br>
+        <input type="radio" name="hungry" value="0"> Eaten
+    </div>
+
+    <button type="submit">Order Here</button>
+</form>
