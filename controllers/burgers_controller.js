@@ -20,7 +20,7 @@ router.post("api/burgers", function (req, res) {
     burger.create([
         "name", "takeout"
     ], [
-            req.body.name, parseInt(req.body.order)
+            req.body.name, parseInt(req.body.takeout)
         ], function (result) {
             res.json({ id: result.insertId });
         });
@@ -43,7 +43,7 @@ router.put("/api/burgers/:id", function (req, res) {
 });
 
 router.delete("api/burgers/:id", function (req, res) {
-    let condition = "id = " + req.paramd.id;
+    let condition = "id = " + req.params.id;
 
     burger.delete(condition, function (result) {
         if (result.affectedRows == 0) {
