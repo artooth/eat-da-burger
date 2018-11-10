@@ -1,9 +1,6 @@
 //Import the ORM to creat functions that will interact with the database
 let orm = require("../config/orm.js");
 
-// To Do: create the code that will call the ORM functions using burger specific input for the ORM.
-
-
 let burger = {
     all: function (cb) {
         orm.all("burgers", function (res) {
